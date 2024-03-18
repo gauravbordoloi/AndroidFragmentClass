@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/fragmentFirst">
+
+    <action
+        android:id="@+id/navDirectToSearch"
+        app:destination="@+id/fragmentSecond" />
+
+    <action
+        android:id="@+id/navDirectToHome"
+        app:destination="@+id/fragmentFirst" />
+
+    <fragment
+        android:id="@+id/fragmentFirst"
+        tools:layout="@layout/fragment_first"
+        android:name="com.codercampy.fragmentclass.FirstFragment"
+        android:label="FirstFragment" >
+        <action
+            android:id="@+id/action_fragmentFirst_to_fragmentDetail"
+            app:destination="@id/fragmentDetail" />
+        <action
+            android:id="@+id/action_fragmentFirst_to_fragmentSecond"
+            app:destination="@id/fragmentSecond" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSecond"
+        tools:layout="@layout/fragment_second"
+        android:name="com.codercampy.fragmentclass.SecondFragment"
+        android:label="SecondFragment" />
+    <fragment
+        android:id="@+id/fragmentDetail"
+        tools:layout="@layout/fragment_detail"
+        android:name="com.codercampy.fragmentclass.FragmentDetail"
+        android:label="FragmentDetail" >
+        <action
+            android:id="@+id/action_fragmentDetail_to_fragmentSecond"
+            app:destination="@id/fragmentSecond" />
+        <argument
+            android:name="current_time"
+            app:argType="long" />
+    </fragment>
+</navigation>
